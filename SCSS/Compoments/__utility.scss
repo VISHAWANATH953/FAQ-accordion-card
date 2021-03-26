@@ -1,0 +1,21 @@
+@use "__var";
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+body{
+    height: 100vh;
+    font-size: 85.2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    background: linear-gradient($Gradinet_violet,$Gradinet_blue);
+    font-family: 'Kumbh Sans', sans-serif;
+}
