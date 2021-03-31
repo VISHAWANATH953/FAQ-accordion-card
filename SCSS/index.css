@@ -30,6 +30,11 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
   background: linear-gradient(#af67e9, #6565e7);
   font-family: 'Kumbh Sans', sans-serif;
+  overflow: hidden;
+}
+
+img.DSVG, img.DSVGS, img.box {
+  display: none;
 }
 
 .card {
@@ -58,6 +63,7 @@ body {
   position: absolute;
   top: -6.8rem;
   border: none;
+  z-index: 9999;
 }
 
 .card img.SVGS {
@@ -76,7 +82,7 @@ body {
 }
 
 .card .dropdowns {
-  margin-top: 4.5rem;
+  margin-top: 2.5rem;
   width: 100%;
   height: 50vh;
   display: -webkit-box;
@@ -85,16 +91,13 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: auto;
 }
 
-.card .dropdowns ul {
+.card .dropdowns .ulbox, .card .dropdowns ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,31 +107,37 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  width: 100%;
+  width: 97%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.card .dropdowns ul li {
+.card .dropdowns .ulbox ul, .card .dropdowns ul ul {
+  border-bottom: 0.1rem solid #e7e7e9;
+  overflow-x: hidden;
+}
+
+.card .dropdowns .ulbox li, .card .dropdowns ul li {
   display: none;
+  margin: 0 auto 0.6rem;
 }
 
-.card .dropdowns ul .hello {
+.card .dropdowns .ulbox .hello, .card .dropdowns ul .hello {
   display: block;
   width: 90%;
   text-align: center;
   padding: 0 1rem;
-  margin: 0.5rem auto;
 }
 
-.card .dropdowns ul li.main {
+.card .dropdowns .ulbox li.main, .card .dropdowns ul li.main {
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
   font-size: 1rem;
   width: 90%;
   -webkit-box-pack: justify;
@@ -138,15 +147,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  height: 2.5rem;
-  margin: 0.1rem auto;
+  margin: 0.25rem auto;
+  height: 2rem;
   padding: 0 1rem;
   color: #787887;
-  border-bottom: 0.1rem solid #e7e7e9;
   font-weight: 400;
 }
 
-.card .dropdowns ul li.main span {
+.card .dropdowns .ulbox li.main span, .card .dropdowns ul li.main span {
   color: #f47c57;
 }
 
@@ -156,5 +164,109 @@ body {
 
 .weight {
   font-weight: 700;
+}
+
+.border {
+  border-bottom: 9;
+  margin-bottom: 0.25rem;
+}
+
+.up {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+@media only screen and (min-width: 992px) {
+  img.SVG, img.SVGS {
+    display: none;
+  }
+  img.DSVG, img.DSVGS, img.box {
+    display: block !important;
+    position: absolute;
+  }
+  img.box {
+    top: 19.5rem;
+    z-index: 999;
+    left: 2rem;
+  }
+  img.DSVG {
+    z-index: 998;
+    top: 7rem;
+    left: -5rem;
+  }
+  img.DSVGS {
+    top: 0rem;
+    height: 90%;
+    left: -7.5rem;
+  }
+  h1 {
+    position: absolute;
+    right: 26rem;
+    top: 5rem;
+    margin: 0 !important;
+    text-align: unset;
+  }
+  .card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    z-index: 998;
+    overflow: hidden !important;
+    margin: 0;
+  }
+  .card .dropdowns {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    height: 80vh;
+    margin-left: 29rem;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    justify-self: flex-end;
+    position: relative;
+    top: 10rem;
+  }
+  .card .dropdowns .ulbox, .card .dropdowns ul {
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+    justify-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -ms-flex-preferred-size: 97%;
+        flex-basis: 97%;
+  }
+  .card .dropdowns .ulbox li, .card .dropdowns ul li {
+    margin: 0 auto 0.6rem;
+  }
+  .card .dropdowns .ulbox .hello, .card .dropdowns ul .hello {
+    width: 90%;
+    padding: 0 1rem;
+  }
+  .card .dropdowns .ulbox li.main, .card .dropdowns ul li.main {
+    width: 90%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    margin: 0.25rem auto;
+    height: 2rem;
+    padding: 0 1rem;
+  }
+  .attribution {
+    margin-top: 0.5rem;
+  }
+  .border {
+    border-bottom: 9;
+    margin-bottom: 0.25rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */
